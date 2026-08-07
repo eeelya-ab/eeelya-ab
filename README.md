@@ -10,7 +10,7 @@
 
 <br>
 
-## 🐍 Snake, eating my contribution graph
+## 🐍 <!--CONTRIB_START-->1,275<!--CONTRIB_END--> contributions in the last year
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/eeelya-ab/eeelya-ab/output/github-contribution-grid-snake-dark.svg" />

@@ -1,0 +1,65 @@
+name: update contribution count
+
+on:
+  schedule:
+    - cron: "30 0 * * *"   # 30 min after the snake job, so they don't race
+  push:
+    branches:
+      - main
+  workflow_dispatch: {}
+
+jobs:
+  update:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: read contribution total from the public profile
+        run: |
+          python3 <<'PY'
+          import re, html, pathlib, urllib.request
+
+          user = "${{ github.repository_owner }}"
+          url = f"https://github.com/users/{user}/contributions"
+          req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+          page = urllib.request.urlopen(req, timeout=30).read().decode("utf-8", "replace")
+
+          # each day cell has a <tool-tip> like "12 contributions on August 3." / "No contributions on ..."
+          total = 0
+          for tip in re.findall(r"<tool-tip[^>]*>(.*?)</tool-tip>", page, re.S):
+              text = html.unescape(re.sub(r"<[^>]+>", "", tip)).strip()
+              m = re.match(r"^(No|[\d,]+)\s+contributions?\s+on", text)
+              if m and m.group(1) != "No":
+                  total += int(m.group(1).replace(",", ""))
+
+          # if GitHub ever changes that markup the scrape yields 0 — don't publish a lie
+          if total == 0:
+              raise SystemExit("parsed 0 contributions; markup probably changed, leaving README alone")
+
+          readme = pathlib.Path("README.md")
+          before = readme.read_text()
+          after = re.sub(
+              r"(<!--CONTRIB_START-->).*?(<!--CONTRIB_END-->)",
+              lambda m: m.group(1) + f"{total:,}" + m.group(2),
+              before,
+              flags=re.S,
+          )
+          if after == before:
+              print(f"total {total:,} — already current")
+          else:
+              readme.write_text(after)
+              print(f"total {total:,} — README updated")
+          PY
+
+      - name: commit if the number moved
+        run: |
+          if git diff --quiet -- README.md; then
+            echo "no change to commit"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: refresh contribution count [skip ci]" -- README.md
+          git push
