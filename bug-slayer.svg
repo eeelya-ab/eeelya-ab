@@ -1,0 +1,230 @@
+<svg width="800" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="cardClip">
+      <rect x="0" y="0" width="800" height="200" rx="12" ry="12"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#cardClip)">
+    <!-- card background -->
+    <rect x="0" y="0" width="800" height="200" fill="#0d1117"/>
+    <rect x="0.5" y="0.5" width="799" height="199" rx="12" ry="12" fill="none" stroke="#30363d" stroke-width="1"/>
+
+    <!-- terminal titlebar -->
+    <rect x="0" y="0" width="800" height="26" fill="#161b22"/>
+    <line x1="0" y1="26" x2="800" y2="26" stroke="#30363d" stroke-width="1"/>
+    <circle cx="16" cy="13" r="5" fill="#ff5f56"/>
+    <circle cx="34" cy="13" r="5" fill="#ffbd2e"/>
+    <circle cx="52" cy="13" r="5" fill="#27c93f"/>
+    <text x="74" y="17" font-family="Consolas, Menlo, monospace" font-size="11" fill="#8b949e">~/slay-the-bugs.sh</text>
+    <text x="726" y="17" font-family="Consolas, Menlo, monospace" font-size="11" fill="#3fb950">● running</text>
+
+    <!-- scrolling pixel ground -->
+    <g fill="#21262d">
+      <g id="groundDashes">
+        <!-- 40 dashes spanning double the visible width for a seamless scroll loop -->
+        <rect x="0" y="178" width="12" height="4" />
+        <rect x="40" y="178" width="12" height="4" />
+        <rect x="80" y="178" width="12" height="4" />
+        <rect x="120" y="178" width="12" height="4" />
+        <rect x="160" y="178" width="12" height="4" />
+        <rect x="200" y="178" width="12" height="4" />
+        <rect x="240" y="178" width="12" height="4" />
+        <rect x="280" y="178" width="12" height="4" />
+        <rect x="320" y="178" width="12" height="4" />
+        <rect x="360" y="178" width="12" height="4" />
+        <rect x="400" y="178" width="12" height="4" />
+        <rect x="440" y="178" width="12" height="4" />
+        <rect x="480" y="178" width="12" height="4" />
+        <rect x="520" y="178" width="12" height="4" />
+        <rect x="560" y="178" width="12" height="4" />
+        <rect x="600" y="178" width="12" height="4" />
+        <rect x="640" y="178" width="12" height="4" />
+        <rect x="680" y="178" width="12" height="4" />
+        <rect x="720" y="178" width="12" height="4" />
+        <rect x="760" y="178" width="12" height="4" />
+        <rect x="800" y="178" width="12" height="4" />
+        <rect x="840" y="178" width="12" height="4" />
+        <rect x="880" y="178" width="12" height="4" />
+        <rect x="920" y="178" width="12" height="4" />
+        <rect x="960" y="178" width="12" height="4" />
+        <rect x="1000" y="178" width="12" height="4" />
+        <rect x="1040" y="178" width="12" height="4" />
+        <rect x="1080" y="178" width="12" height="4" />
+        <rect x="1120" y="178" width="12" height="4" />
+        <rect x="1160" y="178" width="12" height="4" />
+        <rect x="1200" y="178" width="12" height="4" />
+        <rect x="1240" y="178" width="12" height="4" />
+        <rect x="1280" y="178" width="12" height="4" />
+        <rect x="1320" y="178" width="12" height="4" />
+        <rect x="1360" y="178" width="12" height="4" />
+        <rect x="1400" y="178" width="12" height="4" />
+        <rect x="1440" y="178" width="12" height="4" />
+        <rect x="1480" y="178" width="12" height="4" />
+        <rect x="1520" y="178" width="12" height="4" />
+        <rect x="1560" y="178" width="12" height="4" />
+        <animateTransform attributeName="transform" type="translate" values="0,0;-800,0" dur="6s" repeatCount="indefinite"/>
+      </g>
+    </g>
+    <line x1="0" y1="182" x2="800" y2="182" stroke="#21262d" stroke-width="1"/>
+
+    <!-- hero: pixel knight -->
+    <g>
+      <rect x="94" y="161" width="4" height="14" fill="#58a6ff"/>
+      <rect x="102" y="161" width="4" height="14" fill="#58a6ff"/>
+      <rect x="90" y="140" width="20" height="22" fill="#58a6ff"/>
+      <rect x="94" y="128" width="12" height="12" fill="#e6edf3"/>
+      <rect x="97" y="132" width="2" height="2" fill="#0d1117"/>
+      <rect x="103" y="132" width="2" height="2" fill="#0d1117"/>
+      <rect x="108" y="142" width="14" height="6" fill="#58a6ff"/>
+
+      <!-- sword, pivoting at the hand -->
+      <g transform="translate(122,145)">
+        <animateTransform attributeName="transform" type="rotate" values="-70;25;-70" keyTimes="0;0.15;1" dur="1s" begin="1.5s" repeatCount="indefinite" additive="sum"/>
+        <rect x="-8" y="-5" width="8" height="10" fill="#6e7681"/>
+        <rect x="0" y="-3" width="42" height="6" fill="#e3b341" rx="1"/>
+        <rect x="38" y="-4" width="6" height="8" fill="#f0d264" rx="1"/>
+      </g>
+
+      <!-- slash whoosh lines -->
+      <g stroke="#e6edf3" stroke-width="2" opacity="0">
+        <line x1="150" y1="118" x2="168" y2="108"/>
+        <line x1="148" y1="128" x2="170" y2="122"/>
+        <line x1="150" y1="138" x2="168" y2="140"/>
+        <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.15;0.3;1" dur="1s" begin="1.5s" repeatCount="indefinite"/>
+      </g>
+    </g>
+
+    <!-- BUG 1 : lane y=65, green -->
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="780,65;780,65;130,65;130,65" keyTimes="0;0;0.8;1" dur="2s" begin="0s" repeatCount="indefinite"/>
+      <g>
+        <animateTransform attributeName="transform" type="scale" values="1,1;1,1;1.6,0.3;1.6,0.3" keyTimes="0;0.78;0.85;1" dur="2s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;1;1;0" keyTimes="0;0.78;0.85;1" dur="2s" begin="0s" repeatCount="indefinite"/>
+        <g fill="#3fb950">
+          <rect x="-6" y="-10" width="4" height="4"/>
+          <rect x="2" y="-10" width="4" height="4"/>
+          <rect x="-10" y="-6" width="4" height="4"/>
+          <rect x="-6" y="-6" width="4" height="4"/>
+          <rect x="-2" y="-6" width="4" height="4"/>
+          <rect x="2" y="-6" width="4" height="4"/>
+          <rect x="6" y="-6" width="4" height="4"/>
+          <rect x="-10" y="-2" width="4" height="4"/>
+          <rect x="-6" y="-2" width="4" height="4"/>
+          <rect x="-2" y="-2" width="4" height="4"/>
+          <rect x="2" y="-2" width="4" height="4"/>
+          <rect x="6" y="-2" width="4" height="4"/>
+          <rect x="-10" y="2" width="4" height="4"/>
+          <rect x="-6" y="2" width="4" height="4"/>
+          <rect x="-2" y="2" width="4" height="4"/>
+          <rect x="2" y="2" width="4" height="4"/>
+          <rect x="6" y="2" width="4" height="4"/>
+          <rect x="-10" y="6" width="4" height="4"/>
+          <rect x="-2" y="6" width="4" height="4"/>
+          <rect x="6" y="6" width="4" height="4"/>
+        </g>
+      </g>
+      <!-- impact spark -->
+      <g stroke="#f85149" stroke-width="2" opacity="0">
+        <animate attributeName="opacity" values="0;0;1;0" keyTimes="0;0.75;0.85;1" dur="2s" begin="0s" repeatCount="indefinite"/>
+        <line x1="-8" y1="0" x2="8" y2="0"/>
+        <line x1="0" y1="-8" x2="0" y2="8"/>
+        <line x1="-6" y1="-6" x2="6" y2="6"/>
+        <line x1="-6" y1="6" x2="6" y2="-6"/>
+      </g>
+      <!-- bye bug text -->
+      <text x="0" y="-20" text-anchor="middle" font-family="Consolas, Menlo, monospace" font-size="11" font-weight="bold" fill="#f85149" opacity="0">
+        bye bug!
+        <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.78;0.85;0.95;1" dur="2s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="y" values="-20;-20;-32" keyTimes="0;0.78;1" dur="2s" begin="0s" repeatCount="indefinite"/>
+      </text>
+    </g>
+
+    <!-- BUG 2 : lane y=105, blue -->
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="780,105;780,105;130,105;130,105" keyTimes="0;0;0.8;1" dur="2s" begin="0.9s" repeatCount="indefinite"/>
+      <g>
+        <animateTransform attributeName="transform" type="scale" values="1,1;1,1;1.6,0.3;1.6,0.3" keyTimes="0;0.78;0.85;1" dur="2s" begin="0.9s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;1;1;0" keyTimes="0;0.78;0.85;1" dur="2s" begin="0.9s" repeatCount="indefinite"/>
+        <g fill="#58a6ff">
+          <rect x="-6" y="-10" width="4" height="4"/>
+          <rect x="2" y="-10" width="4" height="4"/>
+          <rect x="-10" y="-6" width="4" height="4"/>
+          <rect x="-6" y="-6" width="4" height="4"/>
+          <rect x="-2" y="-6" width="4" height="4"/>
+          <rect x="2" y="-6" width="4" height="4"/>
+          <rect x="6" y="-6" width="4" height="4"/>
+          <rect x="-10" y="-2" width="4" height="4"/>
+          <rect x="-6" y="-2" width="4" height="4"/>
+          <rect x="-2" y="-2" width="4" height="4"/>
+          <rect x="2" y="-2" width="4" height="4"/>
+          <rect x="6" y="-2" width="4" height="4"/>
+          <rect x="-10" y="2" width="4" height="4"/>
+          <rect x="-6" y="2" width="4" height="4"/>
+          <rect x="-2" y="2" width="4" height="4"/>
+          <rect x="2" y="2" width="4" height="4"/>
+          <rect x="6" y="2" width="4" height="4"/>
+          <rect x="-10" y="6" width="4" height="4"/>
+          <rect x="-2" y="6" width="4" height="4"/>
+          <rect x="6" y="6" width="4" height="4"/>
+        </g>
+      </g>
+      <g stroke="#f85149" stroke-width="2" opacity="0">
+        <animate attributeName="opacity" values="0;0;1;0" keyTimes="0;0.75;0.85;1" dur="2s" begin="0.9s" repeatCount="indefinite"/>
+        <line x1="-8" y1="0" x2="8" y2="0"/>
+        <line x1="0" y1="-8" x2="0" y2="8"/>
+        <line x1="-6" y1="-6" x2="6" y2="6"/>
+        <line x1="-6" y1="6" x2="6" y2="-6"/>
+      </g>
+      <text x="0" y="-20" text-anchor="middle" font-family="Consolas, Menlo, monospace" font-size="11" font-weight="bold" fill="#f85149" opacity="0">
+        bye bug!
+        <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.78;0.85;0.95;1" dur="2s" begin="0.9s" repeatCount="indefinite"/>
+        <animate attributeName="y" values="-20;-20;-32" keyTimes="0;0.78;1" dur="2s" begin="0.9s" repeatCount="indefinite"/>
+      </text>
+    </g>
+
+    <!-- BUG 3 : lane y=145, amber -->
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="780,150;780,150;135,150;135,150" keyTimes="0;0;0.8;1" dur="2s" begin="1.8s" repeatCount="indefinite"/>
+      <g>
+        <animateTransform attributeName="transform" type="scale" values="1,1;1,1;1.6,0.3;1.6,0.3" keyTimes="0;0.78;0.85;1" dur="2s" begin="1.8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;1;1;0" keyTimes="0;0.78;0.85;1" dur="2s" begin="1.8s" repeatCount="indefinite"/>
+        <g fill="#d29922">
+          <rect x="-6" y="-10" width="4" height="4"/>
+          <rect x="2" y="-10" width="4" height="4"/>
+          <rect x="-10" y="-6" width="4" height="4"/>
+          <rect x="-6" y="-6" width="4" height="4"/>
+          <rect x="-2" y="-6" width="4" height="4"/>
+          <rect x="2" y="-6" width="4" height="4"/>
+          <rect x="6" y="-6" width="4" height="4"/>
+          <rect x="-10" y="-2" width="4" height="4"/>
+          <rect x="-6" y="-2" width="4" height="4"/>
+          <rect x="-2" y="-2" width="4" height="4"/>
+          <rect x="2" y="-2" width="4" height="4"/>
+          <rect x="6" y="-2" width="4" height="4"/>
+          <rect x="-10" y="2" width="4" height="4"/>
+          <rect x="-6" y="2" width="4" height="4"/>
+          <rect x="-2" y="2" width="4" height="4"/>
+          <rect x="2" y="2" width="4" height="4"/>
+          <rect x="6" y="2" width="4" height="4"/>
+          <rect x="-10" y="6" width="4" height="4"/>
+          <rect x="-2" y="6" width="4" height="4"/>
+          <rect x="6" y="6" width="4" height="4"/>
+        </g>
+      </g>
+      <g stroke="#f85149" stroke-width="2" opacity="0">
+        <animate attributeName="opacity" values="0;0;1;0" keyTimes="0;0.75;0.85;1" dur="2s" begin="1.8s" repeatCount="indefinite"/>
+        <line x1="-8" y1="0" x2="8" y2="0"/>
+        <line x1="0" y1="-8" x2="0" y2="8"/>
+        <line x1="-6" y1="-6" x2="6" y2="6"/>
+        <line x1="-6" y1="6" x2="6" y2="-6"/>
+      </g>
+      <text x="0" y="-20" text-anchor="middle" font-family="Consolas, Menlo, monospace" font-size="11" font-weight="bold" fill="#f85149" opacity="0">
+        bye bug!
+        <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.78;0.85;0.95;1" dur="2s" begin="1.8s" repeatCount="indefinite"/>
+        <animate attributeName="y" values="-20;-20;-32" keyTimes="0;0.78;1" dur="2s" begin="1.8s" repeatCount="indefinite"/>
+      </text>
+    </g>
+
+  </g>
+</svg>
